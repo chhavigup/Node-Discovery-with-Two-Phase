@@ -1,0 +1,42 @@
+README 
+
+This package supports to types of Configs. 
+1. Nodes.cfg file type storage for IP:Port of the nodes
+2. KeyValue pair central storage for IP:Port of the nodes
+
+==================================================================
+
+To execute KeyValue central type, in this example we start two nodes (node1 and node2)
+1. First run the Membership server  - sample command
+java -jar target/GenericNode.jar ms_start  -> This command is to start the membershipo server and the port is 1234
+
+2. Start node1
+java -jar target/GenericNode.jar ts 1252 XXX.X.X.X 1234  -> This is to start the another node on port 1252
+
+3. Start node2
+java -jar target/GenericNode.jar ts 1251 XXX.X.X.X 1234  -> This is to start the another node on port 1252
+
+No you can test it out with the client code - to put a,10, here the node's port we want to talk with is 1251
+java -jar target/GenericNode.jar tc XXX.X.X.X 1251 put a 10 - this will sync the put with other nodes
+java -jar target/GenericNode.jar tc XXX.X.X.X 1251 del a  - this will sync the del with other nodes
+java -jar target/GenericNode.jar tc XXX.X.X.X 1251 store - to see the storge in this node. 
+
+
+==================================================================
+
+To execute Config type, in this example we start two nodes (node1 and node2)
+
+1. Start node1
+java -jar target/GenericNode.jar ts_config 1252 -> This is to start the another node on port 1252
+
+3. Start node2
+java -jar target/GenericNode.jar ts_config 1251  -> This is to start the another node on port 1252
+
+No you can test it out with the client code - to put a,10, here the node's port we want to talk with is 1251
+java -jar target/GenericNode.jar tc XXX.X.X.X 1251 put a 10 - this will sync the put with other nodes
+java -jar target/GenericNode.jar tc XXX.X.X.X 1251 del a  - this will sync the del with other nodes
+java -jar target/GenericNode.jar tc XXX.X.X.X 1251 store - to see the storge in this node. 
+
+ 
+ 
+ 
