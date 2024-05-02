@@ -25,7 +25,7 @@ public class GenericNode {
 
         Long startTime = 0L;
 
-        if (args[0].equals("tc")) {
+        if ("tc".equals(args[0])) {
             System.out.println("TCP CLIENT");
             String addr = args[1];
             int port = Integer.parseInt(args[2]);
@@ -41,7 +41,7 @@ public class GenericNode {
                 System.out.println(u);
             }
 
-        } else if (args[0].equals("ts")) {
+        } else if ("ts".equals(args[0])) {
             System.out.println("TCP SERVER");
             int port = Integer.parseInt(args[1]);
 
@@ -57,7 +57,7 @@ public class GenericNode {
                 System.out.println(e);
                 System.out.println("Server is closed");
             }
-        } else if (args[0].equals("ts_config")) {
+        } else if ("ts_config".equals(args[0])) {
             System.out.println("TCP SERVER");
             int port = Integer.parseInt(args[1]);
 
@@ -74,7 +74,7 @@ public class GenericNode {
                 System.out.println("Server is closed");
             }
 
-        } else if (args[0].equals("ms_start")) {
+        } else if ("ms_start".equals(args[0])) {
             System.out.println("Starting Membership Server");
 
             try {
