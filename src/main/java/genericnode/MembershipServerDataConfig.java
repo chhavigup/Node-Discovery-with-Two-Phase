@@ -4,6 +4,7 @@
  */
 package genericnode;
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -98,7 +99,7 @@ public class MembershipServerDataConfig {
             String tobetransmit = "";
             String trim;
             int skipComma = 0;
-            while ((current = reader.readLine()) != null) {
+            while ((current = BoundedLineReader.readLine(reader, 5_000_000)) != null) {
                 if (skipComma > 0) {
                     tobetransmit += ",";
                 }
